@@ -4,11 +4,13 @@ public class User {
     private Long userId;
     private String userName;
     private String email;
+    private String telephoneNo;
 
-    public User(Long userId, String email, String userName) {
-        this. userId = userId;
-        this.email = email;
+    public User(Long userId, String userName, String email, String telephoneNo) {
+        this.userId = userId;
         this.userName = userName;
+        this.email = email;
+        this.telephoneNo = telephoneNo;
     }
 
     public Long getUserId() {
@@ -33,5 +35,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getTelephoneNo() {
+        return telephoneNo;
+    }
+
+    public void setTelephoneNo(String telephoneNo) {
+        this.telephoneNo = telephoneNo;
     }
 }

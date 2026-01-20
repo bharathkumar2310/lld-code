@@ -1,37 +1,18 @@
 package lld.taskManagementSystem;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
-public class Task {
-    private Long taskId;
+public class TaskHistory {
     private String taskName;
     private String description;
-    private String createdBy;//should be in User list
-    private LocalDateTime createdDate;
     private String assignedTo;//should be in User list
     private LocalDateTime dueDate; // should be after createdDate
     private TaskPriority taskPriority;
     private TaskStatus taskStatus;
-    private String lastModifiedBy;
-    private LocalDateTime lastModifiedTime;
-
-    public Task() {
-    }
-
-    public Task(Long taskId, String taskName) {
-        this.taskId = taskId;
-        this.taskName = taskName;
-    }
-
-    public Long getTaskId() {
-        return taskId;
-    }
-
-    public void setTaskId(Long taskId) {
-        this.taskId = taskId;
-    }
-
+    private String modifiedBy;
+    private LocalDateTime modifiedAt;
+// can have action has CREATED or MODIFIED SO can be used for auditing
+// instead of setters we can use constructor(make them immutable)
     public String getTaskName() {
         return taskName;
     }
@@ -46,22 +27,6 @@ public class Task {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public LocalDateTime getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(LocalDateTime createdDate) {
-        this.createdDate = createdDate;
     }
 
     public String getAssignedTo() {
@@ -96,21 +61,19 @@ public class Task {
         this.taskStatus = taskStatus;
     }
 
-    public String getLastModifiedBy() {
-        return lastModifiedBy;
+    public String getModifiedBy() {
+        return modifiedBy;
     }
 
-    public void setLastModifiedBy(String lastModifiedBy) {
-        this.lastModifiedBy = lastModifiedBy;
+    public void setModifiedBy(String modifiedBy) {
+        this.modifiedBy = modifiedBy;
     }
 
-    public LocalDateTime getLastModifiedTime() {
-        return lastModifiedTime;
+    public LocalDateTime getModifiedAt() {
+        return modifiedAt;
     }
 
-    public void setLastModifiedTime(LocalDateTime lastModifiedTime) {
-        this.lastModifiedTime = lastModifiedTime;
+    public void setModifiedAt(LocalDateTime modifiedAt) {
+        this.modifiedAt = modifiedAt;
     }
-
-
 }

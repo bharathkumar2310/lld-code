@@ -1,5 +1,5 @@
 package lld.taskManagementSystem;
 
 public enum TaskStatus {
-    NEW, ACTIVE, RESOLVED
+    NEW, ACTIVE, BLOCKED, RESOLVED
 }

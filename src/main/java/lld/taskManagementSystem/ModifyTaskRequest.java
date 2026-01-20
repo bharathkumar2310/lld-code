@@ -1,35 +1,23 @@
 package lld.taskManagementSystem;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
-public class Task {
-    private Long taskId;
+public class ModifyTaskRequest {
     private String taskName;
     private String description;
-    private String createdBy;//should be in User list
-    private LocalDateTime createdDate;
     private String assignedTo;//should be in User list
     private LocalDateTime dueDate; // should be after createdDate
     private TaskPriority taskPriority;
-    private TaskStatus taskStatus;
-    private String lastModifiedBy;
-    private LocalDateTime lastModifiedTime;
+    private TaskStatus taskStatus;// can show valid translations from one state to another invalid translation should not happen
 
-    public Task() {
-    }
 
-    public Task(Long taskId, String taskName) {
-        this.taskId = taskId;
+    public ModifyTaskRequest(String taskName, String description, String assignedTo, LocalDateTime dueDate, TaskPriority taskPriority, TaskStatus taskStatus) {
         this.taskName = taskName;
-    }
-
-    public Long getTaskId() {
-        return taskId;
-    }
-
-    public void setTaskId(Long taskId) {
-        this.taskId = taskId;
+        this.description = description;
+        this.assignedTo = assignedTo;
+        this.dueDate = dueDate;
+        this.taskPriority = taskPriority;
+        this.taskStatus = taskStatus;
     }
 
     public String getTaskName() {
@@ -46,22 +34,6 @@ public class Task {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public LocalDateTime getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(LocalDateTime createdDate) {
-        this.createdDate = createdDate;
     }
 
     public String getAssignedTo() {
@@ -95,22 +67,4 @@ public class Task {
     public void setTaskStatus(TaskStatus taskStatus) {
         this.taskStatus = taskStatus;
     }
-
-    public String getLastModifiedBy() {
-        return lastModifiedBy;
-    }
-
-    public void setLastModifiedBy(String lastModifiedBy) {
-        this.lastModifiedBy = lastModifiedBy;
-    }
-
-    public LocalDateTime getLastModifiedTime() {
-        return lastModifiedTime;
-    }
-
-    public void setLastModifiedTime(LocalDateTime lastModifiedTime) {
-        this.lastModifiedTime = lastModifiedTime;
-    }
-
-
 }

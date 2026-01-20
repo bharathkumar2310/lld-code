@@ -1,92 +1,76 @@
-1️⃣ User Management
+User Management
 
-    System should allow creation of users
-    Each user has:
-    
-    Unique ID
-    Name
-    Email
-    
-    A user can be assigned multiple tasks
-    
-    Note (interview tip): Authentication/authorization is out of scope unless specified.
+        Create a user
+        Update user details
+        Delete / deactivate a user
+        View complete user profile
+        Each user should be uniquely identifiable
 
-2️⃣ Task Creation
+Task Management
 
-    User should be able to create a task
-    
-    Each task must have:
-    
-    Task ID
-    Title
-    Description
-    Status (TODO, IN_PROGRESS, DONE)
-    Priority (LOW, MEDIUM, HIGH)
-    Due date
-    
-    A task can exist without being assigned initially
+        Create a task with the following attributes:
+        
+                    taskId
+                    taskName
+                    description
+                    createdBy
+                    createdAt
+                    lastModifiedAt
+                    lastModifiedBy
+                    assignedTo
+                    dueDate
+                    priority (LOW, MEDIUM, HIGH)
+                    status (TODO, IN_PROGRESS, DONE, BLOCKED)
+        
+        Modify task fields:
+        
+                        Task name
+                        Description
+                        Assigned user
+                        Due date
+                        Priority
+                        Status
+        
+        Delete a task
 
-3️⃣ Task Assignment
+Task Lifecycle & Audit
 
-    Task can be assigned to one user
-    Reassignment should be allowed
-    Only valid users can be assigned
+        Track all state transitions of a task
+        Maintain history of:
+        
+                    Previous state
+                    New state
+                    Timestamp
+        
+        User who made the change
+        
+        Invalid state transitions should be restricted
+        (e.g., DONE → IN_PROGRESS)
 
-4️⃣ Task Update
+4. Filtering, Searching, and Sorting
 
-    User should be able to:
-    Update task title or description
-    Change task status
-    Change priority
-    Update due date
-    Task updates should reflect immediately
+        Filter and search tasks based on:
+                    Task name
+                    Assigned user
+                    Status
+                    Priority
+                    Due date                                                                                    
+        
+        Sort tasks based on:
+                    
+                    Creation date
+                    Due date
+                    Priority
 
-5️⃣ Task Retrieval
+5. Authorization (Optional / Advanced)
 
-    System should support fetching:
-    Task by task ID
-    All tasks assigned to a user
-    All tasks under a project (if projects are supported)
-    Tasks filtered by:
-    Status
-    Priority
-    Due date
-
-6️⃣ Task Deletion
-
-    User should be able to delete a task
-    Deleting a task removes it from:
-    User’s assigned task list
-    Project (if any)
-
-7️⃣ Project Management (Optional / Phase-2)
-
-    Create projects
-    Assign tasks to projects
-    Retrieve all tasks under a project
-    In interviews, say:
-    “Project support can be added without changing core task logic.”
-
-8️⃣ Comments on Tasks (Optional)
-    
-    Users can add comments to tasks
-    Comments include:
-    Comment ID
-    Text
-    Created by
-    Timestamp
-
-9️⃣ Notifications (Design Only – Optional)
-
-    Notify user when:
-    Task is assigned
-    Status changes
-    Due date is near
-    Actual delivery (email / push) not implemented in LLD
-
-1️⃣0️⃣ Concurrency Handling
-
-    Multiple users can update tasks concurrently
-    System should prevent:
-    Inconsistent state
-    Lost updates
+        Only authorized users should be allowed to:
+                    
+                    Modify a task
+                    Delete a task
+        
+        Task updates may be restricted to:
+                    
+                    Task creator
+                    Assigned user
+                    Admin role

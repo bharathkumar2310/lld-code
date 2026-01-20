@@ -1,36 +1,15 @@
 package lld.taskManagementSystem;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
-public class Task {
-    private Long taskId;
+public class TaskRequest {
     private String taskName;
     private String description;
-    private String createdBy;//should be in User list
-    private LocalDateTime createdDate;
-    private String assignedTo;//should be in User list
-    private LocalDateTime dueDate; // should be after createdDate
+    private String createdBy;
+    private String assignedTo;
+    private LocalDateTime dueDate;
     private TaskPriority taskPriority;
-    private TaskStatus taskStatus;
     private String lastModifiedBy;
-    private LocalDateTime lastModifiedTime;
-
-    public Task() {
-    }
-
-    public Task(Long taskId, String taskName) {
-        this.taskId = taskId;
-        this.taskName = taskName;
-    }
-
-    public Long getTaskId() {
-        return taskId;
-    }
-
-    public void setTaskId(Long taskId) {
-        this.taskId = taskId;
-    }
 
     public String getTaskName() {
         return taskName;
@@ -54,14 +33,6 @@ public class Task {
 
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
-    }
-
-    public LocalDateTime getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(LocalDateTime createdDate) {
-        this.createdDate = createdDate;
     }
 
     public String getAssignedTo() {
@@ -88,28 +59,12 @@ public class Task {
         this.taskPriority = taskPriority;
     }
 
-    public TaskStatus getTaskStatus() {
-        return taskStatus;
-    }
-
-    public void setTaskStatus(TaskStatus taskStatus) {
-        this.taskStatus = taskStatus;
-    }
-
     public String getLastModifiedBy() {
         return lastModifiedBy;
     }
 
     public void setLastModifiedBy(String lastModifiedBy) {
         this.lastModifiedBy = lastModifiedBy;
-    }
-
-    public LocalDateTime getLastModifiedTime() {
-        return lastModifiedTime;
-    }
-
-    public void setLastModifiedTime(LocalDateTime lastModifiedTime) {
-        this.lastModifiedTime = lastModifiedTime;
     }
 
 
